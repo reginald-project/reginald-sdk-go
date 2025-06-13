@@ -17,6 +17,7 @@ package api
 // A Manifest is the program representation of a plugin manifest.
 type Manifest struct {
 	Name        string `json:"name"`
-	Description string `json:"description,omitempty"`
+	Domain      string `json:"domain"`
+	Description string `json:"description"`
 	Executable  string `json:"executable"`
 }
