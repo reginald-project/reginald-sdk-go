@@ -50,6 +50,9 @@ type Manifest struct {
 
 	// Commands is a list of Commands that this plugin provides.
 	Commands []Command `json:"commands,omitempty"`
+
+	// Tasks is a list of Tasks that this plugin provides.
+	Tasks []Task `json:"tasks,omitempty"`
 }
 
 // A Command is the program representation of a plugin command that is defined
@@ -77,6 +80,23 @@ type Command struct {
 	// Config is a list of ConfigEntries that are used to define
 	// the configuration of the command.
 	Config []ConfigEntry `json:"config,omitempty"`
+}
+
+// A Task is the program representation of a plugin task that is defined in
+// the manifest.
+type Task struct {
+	// Type is the name of the task type that is used to identify this task in
+	// the config file. The plugin's domain will be used as a prefix for
+	// the task type when a task is defined in the config file.
+	Type string `json:"type"`
+
+	// Description is the description of the task that is shown to the user in
+	// the help message.
+	Description string `json:"description"`
+
+	// Config is a list of KeyValues that are used to define the configuration
+	// of the task.
+	Config []KeyValue `json:"config,omitempty"`
 }
 
 // A Flag is a command-line flag the is defined in the manifest for a plugin
